@@ -3,7 +3,7 @@
 
 ## Usage
 #####1) 设置httpDNS实例
-#####注意：若设置了cacheInterval，只有当调用startAsyncParse方法时，才会去判断cacheInterval是否过期，若过期则向DNSPod发起解析域名请求，因此还需在适当的地方再次调用startAsyncParse方法，如发起API请求时。由于该服务的免费版可请求次数是有限的，qps只有1000，使用缓存目的是为了节省请求次数。
+注意：若设置了cacheInterval，只有当调用startAsyncParse方法时，才会去判断cacheInterval是否过期，若过期则向DNSPod发起解析域名请求，因此还需在适当的地方再次调用startAsyncParse方法，如发起API请求时。由于该服务的免费版可请求次数是有限的，qps只有1000，使用缓存目的是为了节省请求次数。
 
 ```objc
 EWHttpDNS *httpDNS = [EWHttpDNS shareInstance];
@@ -12,7 +12,7 @@ httpDNS.defaultMapping = @{@"xxx.com": @"192.168.0.6"}; //设置默认域名IP�
 [httpDNS startAsyncParse];  //开始异步解析
 ```
 #####2) 设置请求映射
-#####即类似Hosts文件的作用，此方法亦可单独用于开发测试环境中局域网内虚拟域名的访问
+即类似Hosts文件的作用，此方法亦可单独用于开发测试环境中局域网内虚拟域名的访问
 ```objc
 [NSURLRequest enableHostsWitMapping:httpDNS];
 ```
